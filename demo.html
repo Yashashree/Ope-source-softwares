@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+
+
+$(function() {
+    enable_cb();
+    $("#group1").click(enable_cb);
+});
+
+function enable_cb() {
+    $("input.group1").prop("disabled", !this.checked);
+}
+</script>
+</head>
+<body>
+<form name="frmChkForm" id="frmChkForm">
+    <input type="checkbox" name="chkcc9" id="group1" />Check Me
+    <input type="checkbox" name="chk9[120]" class="group1" />
+    <input type="checkbox" name="chk9[140]" class="group1" />
+    <input type="checkbox" name="chk9[150]" class="group1" />
+</form>
+</body>
+</html>
