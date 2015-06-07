@@ -10,6 +10,9 @@ include 'DbConnect.php';
   <link rel="stylesheet" href="css/yash.css">
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery-ui.js"></script>
+  <script src="js/bootstrap.js">
+
+</script>
   <link rel="stylesheet" href="css/style.css">
   
    </head>
@@ -25,20 +28,16 @@ $uname=$_POST['uname'];
 $pass=$_POST['pass'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
-echo $submit=$_POST['submit'];
+//echo $submit=$_POST['submit'];
 $query = "INSERT INTO doctorreg(`name`, `age`, `gender`, `ddob`, `address`, `occupation`, `uname`, `pass`, `email`, `phone`) VALUES ('$name',$age,'$gender','$ddob','$address','$occupation','$uname','$pass','$email',$phone)";
 
 if(@mysql_query($query,$conn))
-  header('location:submitsuccess.html');
-
-    echo "<script>
-	$(document).ready(function(){
-		$('".$submit."').click(function(){
-			alert('Submitted Successfully...');
-		});
-	});
-
-</script>";
+ 
+ {
+  echo "<h3>Record Inserted Successfully !</h3>";
+}
 else
+{
     echo "Not inserted";
+}
 ?>

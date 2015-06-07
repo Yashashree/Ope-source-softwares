@@ -1,15 +1,30 @@
-
 <?php
 include "header.php";
 include "authenticate.php";
 include 'DbConnect.php';
 ?>
 
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="css/yash.css">
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/bootstrap.js">
+
+</script>
+  <link rel="stylesheet" href="css/style.css">
+  
+   </head>
 
 <?php
-$case_number=$_POST['case_no'];
+  
 $p_name=$_POST['p_name'];
-$date=$_POST['date'];
+$d=$_POST['date'];
+$datearr = split("/",$d);
+$date=$datearr[2]."-".$datearr[1]."-".$datearr[0];
+
+
 $age=$_POST['age'];
 $address=$_POST['address'];
 $present_comp=$_POST['present_comp'];
@@ -82,12 +97,12 @@ $firstd = 0;
 else
 $firstd = 1;
  
- if(!isset($_POST['secondd']))
+if(!isset($_POST['secondd']))
 $secondd = 0;
 else
 $secondd = 1;
  
- if(!isset($_POST['thirdd']))
+if(!isset($_POST['thirdd']))
 $thirdd = 0;
 else
 $thirdd = 1;
@@ -100,6 +115,7 @@ $CBC=$_POST['CBC'];
 $BLGR=$_POST['bgroup'];
 $HBs=$_POST['HBs'];
 $HIV=$_POST['HIV'];
+
 if(!isset($_POST['first']))
 	$first = 0;
 else
@@ -117,18 +133,20 @@ $EDD=$_POST['EDD'];
 
 
  
-$query = "INSERT INTO opd(`no`, `date`, `name`, `age`, `address`, `complents`, `pmc`, `prmc`, `lmp`, `oh`, `pastho`,`dmother`,`dfather`,`dsiblings`,`dgrandparent`,`dnil`,
+ $query = "INSERT INTO opd(`date`, `name`, `age`, `address`, `complents`, `pmc`, `prmc`, `lmp`, `oh`, `pastho`,`dmother`,`dfather`,`dsiblings`,`dgrandparent`,`dnil`,
  	`hmother`, `hfather`, `hsiblings`, `hgrandparent`, `hnil`,`marriage`,`firstd`, `secondd`, `thirdd`, `pet`, `personal_ho`, `clinical`, `hb`, `cbc`, `bldgroup`, `hbsag`, `hiv`,`first`, `second`, `lmp2`, `edd`) 
-VALUES ($case_number,'$date', '$p_name',$age,'$address','$present_comp','$pmc','$prmc','$lmp','$oh','$past_ho',$motherd,$fatherd,$siblingsd,$grandparentsd,$nild,$motherh,$fatherh,$siblingsh,$grandparentsh,$nilh,
+VALUES ('$date', '$p_name',$age,'$address','$present_comp','$pmc','$prmc','$lmp','$oh','$past_ho',$motherd,$fatherd,$siblingsd,$grandparentsd,$nild,$motherh,$fatherh,$siblingsh,$grandparentsh,$nilh,
     '$marriage',$firstd,$secondd,$thirdd,'$pets','$personal_ho','$Clinical','$HB','$CBC','$BLGR','$HBs','$HIV',$first,$second,'$LMP','$EDD')";
 if(@mysql_query($query,$conn))
 {
-  echo "Record inserted";
+  echo "<h3>Record inserted successfully !</h3>";
 }
 else{
   echo " Not submitted.";
 }
 
- 
-
 ?>
+
+<script src="js/bootstrap.js">
+
+</script>

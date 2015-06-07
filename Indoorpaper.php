@@ -40,7 +40,7 @@ $(document).ready(function(){
             if(window.XMLHttpRequest)
             {
                 xmlhttp=new XMLHttpRequest();
-            }
+$           }
             else
             {
                 xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
@@ -102,7 +102,7 @@ $(document).ready(function(){
              
       <tr> 
         <td class="col-sm-2"><label class="control-label" >Name:</label></td>
-        <td><input class="form-control"type="text" name="p_name" required onclick="loaddata()"></td>
+        <td><input class="form-control"type="text" name="pname" id="pname" onclick="loaddata()"></td>
         <td class="col-sm-1"></td><td><label class="control-label" style="margin-left:50px;">Age: </label></td>
         <td class="col-sm-1" ></td><td><input class="form-control"type="number"  name="age" required ></td>
    </tr> 
@@ -120,7 +120,7 @@ $(document).ready(function(){
 
                <table class="table">
                  <tr><td><label class="control-label">Date of Admission:</label>
-                  </td><td><input class="form-control"type="text" id="datepicker2" name="admitdate" required>
+                  </td><td><input class="form-control"type="date" id="datepicker2" name="date" required>
                </td><td><label class="control-label">Date of Discharge:</label></td>
                <td><input class="form-control" type="text" id="datepicker1"   name="dischargedate">
                </td></tr></table>
@@ -167,7 +167,7 @@ $(document).ready(function(){
               <td><label class="control-label">Birth Time:</label></td>
               <td><input class="form-control" id="datepicker" type="text" name="birthtime"></td>
               </tr><tr><td><label class="control-label">Weight:</label></td>
-              <td><input class="form-control" type="text" name="weight"></td>
+              <td><input class="form-control" type="number" name="weight" required></td>
               </tr ></table> 
               <table class="table">      
                <tr><td><label>Gender :</label></td>

@@ -72,11 +72,20 @@ var date=document.getElementById("datepicker").value;
         <table class="table">
       <tr>
           <td><label class="control-label">No:</label></td>
-          <td> <input class="form-control" type="text" name="case_no" ></td>
+          <td> <input class="form-control" type="text" name="case_no" value="<?php 
+          include 'DbConnect.php';
+
+          $query='select max(no) from opd';
+          $result=mysql_query($query,$conn);
+          $row=mysql_fetch_assoc($result);
+             
+          echo $row['max(no)']+1;
+
+          ?>" disabled></td>
            
 
           <td> <label class="control-label"style="margin-left:50px;">Date: </label></td>
-          <td><input class="form-control"type="text"  name="date" value=" <?php echo date("d/m/Y"); ?>" required></td>
+          <td><input class="form-control" type="text"  name="date" value="<?php echo date("d/m/Y"); ?>"></td>
         
     </tr>
             

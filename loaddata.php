@@ -17,7 +17,7 @@ if(isset($_GET['caseno']))
 echo "<table> 
       <tr>
            <td class='col-sm-2'><label class='control-label'>Name:</label></td>
-           <td><input class='form-control' type='text' name='patientname' value='".$name."'></td>
+           <td><input class='form-control' type='text' name='pname' value='".$name."'></td>
            <td class='col-sm-1'> </td><td><label class='control-label'>Age:</label></td>
            <td class='col-sm-1'></td><td><input class='form-control' type='number'  name='age' value='".$age."'></td>
     </tr>

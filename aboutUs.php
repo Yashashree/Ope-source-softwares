@@ -126,21 +126,16 @@ From the friendly greeting at the reception desk to the courtesy knock on the do
                                             <div class="icon"><span class="glyphicon glyphicon-leaf"></span></div>
                                             <h6 class="title">Quality of Care</h6>
                                         </a></li>
+ 
 
                                         <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
-                                            <div class="icon"><span class="glyphicon glyphicon-user"></span></div>
-                                            <h6 class="title">Our Team</h6>
-                                        </a></li>
-
-                                        <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
+                                        <li class="item clearfix"><a href="search.php" class="item-content">
                                             <div class="icon"><span class="glyphicon glyphicon-search"></span></div>
                                             <h6 class="title">Search a Doctor</h6>
                                         </a></li>
 
                                         <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
+                                        <li class="item clearfix"><a href="appointmentform.php" class="item-content">
                                             <div class="icon"><span class="glyphicon glyphicon-calendar"></span></div>
                                             <h6 class="title">Fix an appointment</h6>
                                         </a></li>

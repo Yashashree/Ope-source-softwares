@@ -13,8 +13,46 @@ include 'header.php';
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
+  	$( "#datepicker1" ).datepicker();
+  
   });
+
+
   </script>
+  <script type="text/javascript">
+        function searchdata()
+        {
+           var formtype=document.getElementById("formtype").value;
+           var fromdate=document.getElementById("datepicker").value;
+           var todate=document.getElementById("datepicker1").value;
+           
+            if(window.XMLHttpRequest)
+            {
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {
+                xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if(xmlhttp.readyState==4&&xmlhttp.status==200)
+                {
+                    // alert('alert');
+                    document.getElementById('result').innerHTML=xmlhttp.responseText;
+                }
+            }
+                     
+
+            xmlhttp.open('GET','searchbydate.php?formtype='+formtype+"&fromdate="+fromdate+"&todate="+todate,'true');
+ 
+            xmlhttp.send();
+              
+
+        }
+</script>
+
+
     <style>
     </style>
 </head>
@@ -36,10 +74,10 @@ include 'header.php';
            </div>
            <br><br>
     <div>
-    <form action="searchcasepaper.php" method="post">
+    <form action="searchcasepaper.php" method="get">
         <table class="table">
       <tr>
-          <td><label class="control-label">Search from casepaper:</label></td>
+          <td class="col-md-5"><label class="control-label">Search from casepaper:</label></td>
       </tr>
       <tr>
       	  <td class="col-sm-3"><label class="control-label">Name:</label></td>
@@ -51,65 +89,84 @@ include 'header.php';
           </tr>
       </table>
       </form>
-
+<form action="searchindoorpaper.php" method="get">
       <table class="table">
       <tr>
           <td><label class="control-label">Search from Indoor Paper:</label></td>
       </tr></table>
       <table class="table"><tr>
       	  <td class="col-sm-3"><label class="control-label">Name:</label></td>
-          <td class="col-sm-2"><input class="form-control" type="text" name="p_name"></td>
+          <td class="col-sm-2"><input class="form-control" type="text" name="name"></td>
            <td class="col-sm-2"><label class="control-label">Case_No:</label></td>
-           <td class="col-sm-3"><input class="form-control" type="text" name="p_name"></td>
+           <td class="col-sm-3"><input class="form-control" type="text" name="no"></td>
            <td class="col-sm-3"><input class="btn btn-success " type="submit" value="SEARCH"></td>
            </tr>
 </table>
+</form>
+
+<form action="searchindoorsheet.php" method="get">
  <table class="table">
-      <tr>
+      <tr>  
           <td><label class="control-label">Search from Indoor Sheet:</label></td>
       </tr></table>
  <table class="table">
  			<tr>
       	  <td class="col-sm-3"><label class="control-label">Name:</label></td>
-          <td class="col-sm-2"><input class="form-control" type="text" name="p_name"></td>
+          <td class="col-sm-2"><input class="form-control" type="text" name="name"></td>
            <td class="col-sm-2"><label class="control-label">Case_No:</label></td>
-           <td class="col-sm-3"><input class="form-control" type="text" name="p_name"></td>
+           <td class="col-sm-3"><input class="form-control" type="text" name="no"></td>
            <td class="col-sm-3"><input class="btn btn-success " type="submit" value="SEARCH"></td>
            </tr>                      
 </table>
+</form>
+ 
+ </form>
 
-
+<form action="searchdoctreg.php" method="get">
  <table class="table">
       <tr>
-          <td><label class="control-label">Search According To Delivery Type:</label></td>
+          <td><label class="control-label">Search For Doctor:</label></td>
       </tr></table>
  <table class="table">
- 			 
-<td><label class="control-label"> Delivery Type:</td>
-  <td>
-   
-      
-  <select class="form-control"  style="width:180px;" >
-    <option> Scisor</option>
-    <option>Normal</option>
-   
-  </select></div></td>
+ 			<tr>
+      	  <td class="col-sm-3"><label class="control-label">Name:</label></td>
+          <td class="col-sm-2"><input class="form-control" type="text" name="name"></td>
+            
            <td class="col-sm-3"><input class="btn btn-success " type="submit" value="SEARCH"></td>
-          </tr>                    
+           </tr>                      
 </table>
-
-
-
- <table class="table">
+</form>
+ 
+  
+<table class="table">
       <tr>
           <td><label class="control-label">Search According To Date:</label></td>
       </tr></table>
  <table class="table">
+ 	<tr>
+ 	  <td class="col-sm-3"><label class="control-label">Select form:</label></td>
+ 		
+  <td class="col-sm-4"> 
+<select class="form-control" name="formtype" id="formtype">
+            <option value="nSull">Select One</option>
+            <option value ="opd">OPD Case Paper</option>
+            <option value="indoor">Indoor Case Paper</option>
+            <option value = "indoorcont">Indoor Sheet Paper</option> 
+    </select>
+</td>
+</tr>
  			<tr>
-      	  <td class="col-sm-3"><label class="control-label">Date:</label></td>
-          <td class="col-sm-2"><input class="form-control" type="text" name="p_name" id="datepicker"></td>
-          <td class="col-sm-4"></td>
-          <td class="col-sm-2"><input class="btn btn-success " type="submit" value="SEARCH"></td>
-           </tr>                      
-</table>
+      	  <td class="col-sm-1"><label class="control-label">From:</label></td>
  
+          <td class="col-sm-3"><input class="form-control" type="text" name="fromdate" id="datepicker"></td>
+           
+      	  <td class="col-sm-1"><label class="control-label">To:</label></td>
+           <td class="col-sm-3"><input class="form-control" type="text" name="todate" id="datepicker1"></td>
+          <td class="col-sm-4"></td>
+          <td class="col-sm-2"><input class="btn btn-success" value="SEARCH" onclick="searchdata();"></td>
+           </tr>
+
+</table>
+
+<div id="result"></div> 
+  

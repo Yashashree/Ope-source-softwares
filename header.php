@@ -6,10 +6,13 @@
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/bootstrap.theme.min.css" rel="stylesheet">
             <link rel="shortcut icon" href="img/favicon.ico"/>
-  
+            
      <title> Nitave Hospital
     </title>
     </head>
+    <script src="js/bootstrap.js">
+
+</script>
     <body background="img/bg.jpg" >
         <div class="container" style="background-color:white;">
          <div>
@@ -63,10 +66,10 @@ else
     echo"<span class='caret'></span>
     </a>
     <ul class='dropdown-menu' role='menu'>
-        <li><a href='#'>My Profile</a></li>
+         
         <li><a href='formtabs.php'>Forms</a></li>
-         <li><a href='Receptionist_registration.php'>Add User</a></li>
-        <li><a href='#'>Change Password</a></li>
+         
+         
         <li><a href='logout.php'>Log Out</a></li> 
     </ul>
   </li>";

@@ -53,9 +53,10 @@
             <div class="col-md-4 pull-left ">
          <h1><img src="img/hospital.jpg" alt="symbol" height="70" width="70">Nitave Hospital</h1>
             </div>
-          <div class="col-md-3 pull-right">
-                <h4>Dr. Sanjay B. Nitave </h4><h5>M.D. Consulting Gynaecologist</h5>
+          <div class="col-md-3.5 pull-right">
+            <h4>Dr. Sanjay B. Nitave </h4><h5>M.D. Consulting Gynaecologist</h5>
                 <h4>Dr. Mrs. Shobhana S. Nitave </h4><h5>M.B.B.S. Physician & Surgeon</h5>
+
          
               </div>
         </div>
@@ -156,7 +157,7 @@ include 'header2.php';
                                     <ul class="vertical-simple-list">
                                         
                                         <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
+                                        <li class="item clearfix"><a href="aboutUs.php" class="item-content">
                                             <div class="icon"><span class="glyphicon glyphicon-leaf"></span></div>
                                             <h6 class="title">Quality of Care</h6>
                                         </a></li>
@@ -168,13 +169,13 @@ include 'header2.php';
                                         </a></li>
 
                                         <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
+                                        <li class="item clearfix"><a href="search.php" class="item-content">
                                             <div class="icon"><span class="glyphicon glyphicon-search"></span></div>
                                             <h6 class="title">Search a Doctor</h6>
                                         </a></li>
 
                                         <!-- list item -->
-                                        <li class="item clearfix"><a href="#" class="item-content">
+                                        <li class="item clearfix"><a href="appointmentform.php" class="item-content">
                                             <div class="icon"><span class="glyphicon glyphicon-calendar"></span></div>
                                             <h6 class="title">Fix an appointment</h6>
                                         </a></li>
@@ -363,8 +364,8 @@ include 'header2.php';
 
             <!-- left -->
             <div class="col-sm-6 beneath-footer-left">
-                <div class="text">
-                    © Group No :12
+                                                                                                
+                    <h5>Designed And Developed By © Group No :11</h5>
                     <br><a href="#">Know more</a>
                 </div>
             </div>
