@@ -3,13 +3,15 @@ include 'header.php';
 include 'DbConnect.php';
 ?>
 
-
 <head>
   <meta charset="utf-8">
   <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="css/yash.css">
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery-ui.js"></script>
+  <script src="js/bootstrap.js">
+
+</script>
   <link rel="stylesheet" href="css/style.css">
   
    </head>
@@ -32,7 +34,8 @@ $phone=$_POST['phone'];
  $query = "INSERT INTO receptionistreg(`name`, `rid`, `age`, `gender`, `ddob`, `address`, `bgroup`, `occupation`, `uname`, `pass`, `email`, `phone`) VALUES ('$name',$rid,$age,'$gender','$ddob','$address','$bgroup','$occupation','$uname','$pass','$email','$phone')";
 
 if(@mysql_query($query,$conn))
-    echo "Record inserted successfully.";
+        echo "<h3>Record inserted successfully !</h3>";
+
 else
     echo "Not inserted";
 ?>

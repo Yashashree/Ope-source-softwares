@@ -81,14 +81,16 @@ include 'header.php';
 </tr>      
                <tr>
            <td><label class="control-label"> Phone No</label>
-           </td><td><input class="form-control" type="text" name="phone" required></td>
+
+           </td><td><input type='tel' pattern="[0-9]{10,10}" class="search" name="phone"  autocomplete="off"  maxlength="10" required></td>
 </tr>      
           </table>
            
            
            
          <table class="table">
-         <tr><td class="col-sm-5"></td><td><input type="submit" class="btn btn-success" value="Register" id="submit" >
+         <tr><td class="col-sm-3"></td><td><input type="submit" class="btn btn-success" value="Register" id="submit" >
+         <td class="col-sm-1 "></td><td><input type="reset" class="btn btn-danger" value="Cancel" id="submit" >
                </td></tr>
            </table>
        </table>

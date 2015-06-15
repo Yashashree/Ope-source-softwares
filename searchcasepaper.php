@@ -1,197 +1,331 @@
 <?php
-include 'header.php';
-echo $name=$_POST['name'];
-echo $no=$_POST['no'];
-$query = "select *from opd where no=".$no;
+//include 'header.php';
+$name=$_GET['name'];
+$no=$_GET['no'];
+//$no=1;
+if(!isset($no))
+{
+			die("Plz insert valid case no.");
+}
+ $query = "SELECT * FROM opd WHERE no=".$no;
 include 'DbConnect.php';
-$result= mysql_query($query,$conn);
-$row = mysql_fetch_assoc($result);
+
+if($result= mysql_query($query,$conn))
+{
+     "retrived";
+}
+else
+{
+		die("Plz insert valid case no.");
+}
+
+$row=mysql_fetch_assoc($result);
+
+$no=$row['no'];
+$date=$row['date'];
+$name=$row['name'];
+$age=$row['age'];
+$address=$row['address'];
+$complents=$row['complents'];
+$pmc=$row['pmc'];
+$prmc=$row['prmc'];
+$lmp=$row['lmp'];
+$oh=$row['oh'];
+$pastho=$row['pastho'];
+//cho $dmother=$row['dmother'];
+
+$dfather=$row['dfather'];
+$dsiblings=$row['dsiblings'];
+$dgrandparent=$row['dgrandparent'];
+$dnil=$row['dnil'];
+$hmother=$row['hmother'];
+$hfather=$row['hfather'];
+$hsiblings=$row['hsiblings'];
+$hgrandparent=$row['hgrandparent'];
+$hnil=$row['hnil'];
+$marriage=$row['marriage'];
+$firstd=$row['firstd'];
+$secondd=$row['secondd'];
+$thirdd=$row['thirdd'];
+$pet=$row['pet'];
+$personal_ho=$row['personal_ho'];
+$clinical=$row['clinical'];
+$hb=$row['hb'];
+$cbc=$row['cbc'];
+$bldgroup=$row['bldgroup'];
+$hbsag=$row['hbsag'];
+$hiv=$row['hiv'];
+$first=$row['first'];
+$second=$row['second'];
+$lmp2=$row['lmp2'];
+$edd=$row['edd'];
 
 
 
 
-        echo "<table class='table'>
-      <tr>
-          <td><label class='control-label'>No:</label></td>
-          <td> ".$row['no']."</td>
-           
 
-          <td> <label class='control-label' style='margin-left:50px;'>Date: </label></td>
-          <td><input class='form-control' type='text'  name='date' value='".$row[date]."' disabled> 
-           
-            </td> 
-    </tr> 
-    <tr> 
-        <td><label class="control-label" >Name:</label></td>
-        <td > <input class="form-control"type="text" name="p_name" required ></td>
-        <td><label class="control-label" style="margin-left:50px;">Age: </label></td>
-        <td><input class="form-control"type="number"  name="age" required ></td>
-   </tr>                    
-</table>
-<table class="table">
-     <tr>
-        <td><label class="control-label"> Address:</label></td>
-        <td><textarea class="form-control" rows="4" cols="50" name="address" placeholder="Type your address here.."required style=" resize:none;"></textarea></td> 
-         </tr>
-    <tr>
-         <td><label class="control-label"> Present Complaints:</label></td>
-        <td><textarea class="form-control" rows="4" cols="50" placeholder=" " name="present_comp"required style=" resize:none;"></textarea></td> 
-    </tr>
-</table>
-<table class="table">
-    <tr>
-        <td><label class="control-label"> PMC: </label></td>
-        <td><textarea class="form-control" rows="4" cols="30" name="pmc" required style=" resize:none;">
-            </textarea> </td>
-            <td><label class="control-label"> Pr Mc: </label></td>
-             <td><input class="form-control" type="text" name="pmrc" value="Regular" ></td>
-    </tr>
- 
-    <tr>
-
-            <td><label class="control-label">LMP:</label></td>
-            <td><input class="form-control" type="text" id="datepicker" name="lmp" required></td>
-         
-            <td><label class="control-label"> OH: </label></td>
-            <td><textarea class="form-control" rows="1" cols="30" name="oh" style="resize:none;" onclick="setdate()"></textarea></td>
-        </tr>
-        </table>
-        <table class="table">
-       <td> <label class="control-label">Past OH:</label></td>
-               <td><textarea class="form-control" rows="3" cols="40" name="past_ho"></textarea></td>
-              
-               </table>
-             <table class="table">
-             <tr><td> <label class="control-label">Family H/O :</label></div>
-            </td></tr>
-           <tr><td> <label > Diabetes:</label></td>
-     <td><label> <input type="checkbox" name="motherd" value="mother"> Mother
-    </label></td>
-     <td><label> <input type="checkbox" name="fatherd" value="father"> Father
-    </label></td>
-     <td><label> <input type="checkbox" name="siblingsd" value="Siblings"> Siblings
-    </label></td>
-     <td><label> <input type="checkbox" name="grandparentsd" value="Grandparents"> Grandparents
-    </label></td>
-     <td><label> <input type="checkbox" name="nild" value="Nil"> Nil
-    </label></td></tr>
-    <tr>
-      <td> <label > Hypertension:</label></td>
-     <td><label> <input type="checkbox"name="motherh" value="mother"> Mother
-    </label></td>
-     <td><label> <input type="checkbox" name="fatherh" value="father">  Father
-    </label></td>
-     <td><label> <input type="checkbox"name="siblingsh" value="siblings"> Siblings
-    </label></td>
-     <td><label> <input type="checkbox" name="grandparentsh" value="grandparents"> Grandparents
-    </label></td>
-     <td><label> <input type="checkbox" name="nilh" value="nil"> Nil
-    </label></td></tr>
-    <tr>
-      
-      <td><label > Marriage:</label></td>
-      <td><label class="radio-inline">
-  <input type="radio" name="marriage" value="consanguineous"  id="radio1" > Consanguineous
-</label></td>
-<td>
-  <label>
-    <input type="checkbox" name="firstd" value="1st degree" disabled id="ch1">
-    1st Degree
-  </label>
-
-</td>
-     <td>
-  <label>
-    <input type="checkbox" name="secondd" value="2nd degree" disabled id="ch2">
-    2nd Degree
-  </label>
-
-</td>
-     <td>
-  <label>
-    <input type="checkbox" name="thirdd" value="3rd degree" disabled id="ch3">
-    3rd Degree
-  </label>
-
-</td></tr>
-<tr><td class="col-sm-3"></td><td><label class="radio-inline">
-  <input type="radio" name="marriage" value="non_consanguineous" id="radio2" value="option2"> Non Consanguineous
-</label></td></tr>
-<tr>
-<td><label class="control-label"> Pets:</td>
-  <td> 
-<select class="form-control" name="pets" id="pets">
-            <option value="Null">Select One</option>
-            <option value ="Cat">Cat</option>
-            <option value="Dog">Dog</option>
-            <option value = "Hens">Hens</option>
-            <option value = "Cow">Cow</option>
-    </select>
-</td>
-
-</tr>
-
-  
-  </table>
-  <table class="table">
-
- <tr>
-        <td><label class="control-label"> Personal H/O:</label></td>
-        <td><textarea class="form-control" rows="4" cols="50" name="personal_ho" placeholder="Type here.."required style=" resize:none;"></textarea></td> 
-         </tr>
-            <tr>
-            <td><label class="control-label"> Clinical:</label></td>
-        <td><textarea class="form-control" rows="4" cols="50" name="Clinical" placeholder="Type here.."required style=" resize:none;"></textarea></td> 
-         </tr>
-</table>
-<table class="table">
-    <tr>
-<td><label class="control-label">HB:</label></td>
-   <td> <input class="form-control" type="text" name="HB">
-       </td>    
-<td><label class="control-label">CBC:</label></td>
-           <td><input class="form-control" type="text" name="CBC"></td>
-         </tr>
-         <tr>
-           <td> <label class="control-label">Blood Group</label></td>
-               <td><select class="form-control" role="menu" name="bgroup">
-                   <option>Select Blood Group</option>
-                      <option> O+ve</option>
-                      <option>A+ve</option>
-                   <option> B+ve</option>
-                      <option>AB+ve</option>
-                    <option> O-ve</option>
-                      <option>A-ve</option>
-                   <option> B-ve</option>
-                      <option>AB-ve</option>
-                   </select>           
-                     </td>
-               <td>
-<label >HBs Ag:</label></td>
-<td>
-           <input class="form-control" type="text" name="HBs">
-   </td></tr>  
-   <tr>      
-<td><label >HIV:</label>
-   </td> <td>       <input class="form-control col-sm-5" type="text" name="HIV">
-           </td>
-           <td>
-<label >Inj TT :</label>
-           </td>
-           <td><label> <input type="checkbox" name="first"  > 1 st
-    </label> 
-     <label> <input type="checkbox" name="second"  > 2 nd
-    </label></td>
-</tr>
-<tr>
-<td><label >LMP:</label>
-</td><td>           <input class="form-control col-sm-5"  type="text" id="lmp2" name="LMP">
-        </td>   
-<td><label >EDD:</label>
-</td><td>  <input class="form-control col-sm-5" type="text" name="EDD">
-        </td>  
-        </tr>
-      </table>
+if(!isset($dmother))
+{
+    $dmother = "True";
      
-echo $row['no']."<br>".$row['name'];
-?>
+}
+else
+{
+    $dmother = "False";
+     
+}
+//echo $dmother;
+
+
+if(!isset($dfather))
+{
+    $dfather = "True";
+     
+}
+else
+{
+    $dfather = "False";
+     
+}
+
+
+if(!isset($dsiblings))
+{
+    $dsiblings = "True";
+     
+}
+else
+{
+    $dsiblings = "False";
+     
+}
+
+
+if(!isset($dgrandparent))
+{
+    $dgrandparent = "True";
+     
+}
+else
+{
+    $dgrandparent = "False";
+     
+}
+
+
+if(!isset($dnil))
+{
+    $dnil = "True";
+     
+}
+else
+{
+    $dnil = "False";
+     
+}
+
+
+if(!isset($hmother))
+{
+    $hmother = "True";
+     
+}
+else
+{
+    $hmother = "False";
+     
+}
+//echo $dmother;
+
+
+if(!isset($hfather))
+{
+    $hfather = "True";
+     
+}
+else
+{
+    $hfather = "False";
+     
+}
+
+
+if(!isset($hsiblings))
+{
+    $hsiblings = "True";
+     
+}
+else
+{
+    $hsiblings = "False";
+     
+}
+
+
+if(!isset($hgrandparent))
+{
+    $hgrandparent = "True";
+     
+}
+else
+{
+    $hgrandparent = "False";
+     
+}
+
+
+if(!isset($hnil))
+{
+    $hnil = "True";
+     
+}
+else
+{
+    $hnil = "False";
+     
+}
+
+
+if(!isset($firstd))
+{
+    $firstd = "True";
+     
+}
+else
+{
+    $firstd = "False";
+     
+}
+
+
+if(!isset($secondd))
+{
+    $secondd = "True";
+     
+}
+else
+{
+    $secondd = "False";
+     
+}
+
+
+if(!isset($thirdd))
+{
+    $thirdd = "True";
+     
+}
+else
+{
+    $thirdd = "False";
+     
+}
+
+if(!isset($marriage))
+{
+    $marriage = "Consanguineous";
+     
+}
+else
+{
+    $marriage = "Non Consanguineous";
+     
+}
+
+
+if(!strcmp($marriage,"Consanguineous"))
+{
+    $firstd="Nil";
+    $secondd="Nil";
+    $thirdd="Nil";
+}
+// PDF generation
+
+require("fpdf/fpdf.php");
+$pdf=new FPDF();
+$pdf->AddPage();
+$pdf->SetFont("Arial","B",16);
+$pdf->Cell(0,10,"Nitave Hospital",1,0,"L");
+$pdf->Cell(-100,10,"OPD Case Paper",1,0,"C");
+$pdf->SetFont("Arial","",10);
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Case no : {$no}",1,0,"L");
+$pdf->Cell(-100,10,"Date : {$date}",1,0,"C");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Name : {$name}",1,0,"L");
+$pdf->Cell(-100,10,"Age : {$age}",1,0,"C");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Address : {$address}",1,0,"L");
+$pdf->Cell(-100,10,"Present Complaints : {$complents}",1,0,"C");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"PMC : {$pmc}",1,0,"L");
+$pdf->Cell(-100,10,"Pr Mc : {$prmc}",1,0,"C");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"LMP : {$lmp}",1,0,"L");
+$pdf->Cell(-100,10,"OH : {$oh}",1,0,"C");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Past OH : {$pastho}",1,0,"L");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Family H/O : Mother = {$dmother}  Father = {$dfather} Siblings = {$dsiblings} Grandparents = {$dgrandparent} Nil = {$dnil}",1,0,"L");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Hypertension : Mother = {$hmother}  Father = {$hfather} Siblings = {$hsiblings} Grandparents = {$hgrandparent} Nil = {$hnil}",1,0,"L");
+
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Hypertension : Mother = {$hmother}  Father = {$hfather} Siblings = {$hsiblings} Grandparents = {$hgrandparent} Nil = {$hnil}",1,0,"L");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Marriage :   {$marriage}  1 st Degree = {$firstd} 2 nd Degree = {$secondd} 3 rd Degree = {$thirdd}",1,0,"L");
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Pets :   {$pet} ",1,0,"L");
+ 
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Personal H/O :   {$personal_ho} ",1,0,"L");
+ 
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Clinical :   {$clinical} ",1,0,"L");
+
+ 
+$pdf->Ln();
+$pdf->Cell(0,10,"HB : {$hb}",1,0,"L");
+$pdf->Cell(-100,10,"CBC: {$cbc}",1,0,"C");
+
+
+$pdf->Ln();
+$pdf->Cell(0,10,"Blood Group : {$bldgroup}",1,0,"L");
+$pdf->Cell(-100,10,"HBs Ag : {$hbsag}",1,0,"C");
+
+if(isset($first))
+  $first="True";
+else
+  $first="False";
+
+if(isset($second))
+  $second="True";
+else
+  $second="False";
+
+$pdf->Ln();
+$pdf->Cell(0,10,"HIV : {$hiv}",1,0,"L");
+$pdf->Cell(-100,10,"Inj TT : First: {$first} Second :{$second}",1,0,"C");
+
+
+$pdf->Ln();
+$pdf->Cell(0,10,"LMP : {$lmp2}",1,0,"L");
+$pdf->Cell(-100,10,"EDD : {$edd}",1,0,"C");
+$pdf->output();
+
+
+
+ ?>

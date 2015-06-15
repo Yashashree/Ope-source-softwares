@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+          <link rel="icon" type="image/png" href="img/favicon.png">
             <link href="css/style1.css" type="text/css" rel="stylesheet">
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/bootstrap.theme.min.css" rel="stylesheet">
