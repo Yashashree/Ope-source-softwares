@@ -54,7 +54,7 @@
          <h1><img src="img/hospital.jpg" alt="symbol" height="70" width="70">Nitave Hospital</h1>
             </div>
           <div class="col-md-3.5 pull-right">
-            <h4>Dr. Sanjay B. Nitave </h4><h5>M.D. Consulting Gynaecologist</h5>
+            <h4><font color="black">Dr. Sanjay B. Nitave </font></h4><h5>M.D. Consulting Gynaecologist</h5>
                 <h4>Dr. Mrs. Shobhana S. Nitave </h4><h5>M.B.B.S. Physician & Surgeon</h5>
 
          
